@@ -2,7 +2,6 @@ package Calss;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -21,10 +20,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}'+"\n";
+        return "Student{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + '}' + "\n";
     }
 }
