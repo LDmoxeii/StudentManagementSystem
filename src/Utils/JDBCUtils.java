@@ -11,10 +11,11 @@ public class JDBCUtils {
     private static String user;
     private static String password;
     private static String driver;
+    private static InputStream inputStream;
 
     static {
         try {
-            InputStream inputStream = ClassLoader.getSystemResourceAsStream("Utils/db.properties");
+            inputStream = ClassLoader.getSystemResourceAsStream("Utils/db.properties");
             Properties properties = new Properties();
             properties.load(inputStream);
 
@@ -25,6 +26,12 @@ public class JDBCUtils {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

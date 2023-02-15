@@ -8,16 +8,23 @@ import java.util.Properties;
 
 public class LogUpdate {
     private static String logPath;
+    private static InputStream inputStream;
     private static String message= Calendar.getInstance().getTime().toString()+Thread.currentThread().getStackTrace()[2].getMethodName()+"\n";
     static {
         try {
-            InputStream inputStream = ClassLoader.getSystemResourceAsStream("Utils/db.properties");
+            inputStream = ClassLoader.getSystemResourceAsStream("Utils/db.properties");
             Properties properties = new Properties();
             properties.load(inputStream);
             logPath =properties.getProperty("logPath");
 
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                inputStream.close ();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     public static void logUpdate(){
