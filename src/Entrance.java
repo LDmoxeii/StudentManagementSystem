@@ -10,7 +10,7 @@ public class Entrance {
     public static void init() {
         System.out.println("-----------Welcome Students Management System---------");
 
-        System.out.println("1.insert\t2.deleteById\n3.updateById\t4.selectAll\n5.selectAll\t6.exit");
+        System.out.println("1.insert\t2.deleteById\n3.updateById\t4.selectAll\n5.select\t6.exit");
 
         functionalServices();
     }

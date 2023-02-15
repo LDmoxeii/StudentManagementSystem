@@ -1,5 +1,6 @@
 import Calss.Student;
 import Utils.JDBCUtils;
+import Utils.LogUpdate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -111,6 +112,7 @@ public class Function {
             try {
                 JDBCUtils.close(connection, preparedStatement01, resultSet);
                 scanner.close();
+                LogUpdate.logUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
