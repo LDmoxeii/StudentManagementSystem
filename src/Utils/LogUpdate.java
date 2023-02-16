@@ -1,15 +1,14 @@
 package Utils;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.Properties;
 
 public class LogUpdate {
     private static String logPath;
     private static InputStream inputStream;
-    private static String message =
-        Calendar.getInstance().getTime().toString() + "\t"+Thread.currentThread().getStackTrace()[2].getMethodName() + "\n";
+    private static String message = Calendar.getInstance().getTime().toString() + "\t"
+        + Thread.currentThread().getStackTrace()[2].getMethodName() + "\n";
     private static BufferedWriter bufferedWriter;
     static {
         try {
@@ -31,8 +30,7 @@ public class LogUpdate {
 
     public static void logUpdate() {
         try {
-            bufferedWriter =
-                new BufferedWriter(new OutputStreamWriter(new FileOutputStream(logPath, true), StandardCharsets.UTF_8));
+            bufferedWriter = new BufferedWriter(new FileWriter(logPath, true));
             bufferedWriter.write(message);
         } catch (IOException e) {
             e.printStackTrace();
