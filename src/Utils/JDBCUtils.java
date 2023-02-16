@@ -29,6 +29,7 @@ public class JDBCUtils {
         }finally {
             try {
                 inputStream.close();
+                inputStream = null;
             } catch (IOException e) {
                 e.printStackTrace();
             }
